@@ -21,8 +21,24 @@ def find_exploit(xs):
                 return x
             preamble.append(x)
             preamble.popleft()
-            
+
 def find_range_that_adds(exploit, xs):
+    pivot = None
+    for i, x in enumerate(xs):
+        if x == exploit:
+            pivot = i
+    first_section = xs[:pivot]
+    print("Searching within the first section")
+    before_exploit = find_range_that_adds_aux(exploit, first_section)
+    if before_exploit:
+        return before_exploit
+    second_section = xs[pivot + 1:]
+    print("Searching within the second section")
+    after_exploit = find_range_that_adds_aux(exploit, second_section)
+    if after_exploit:
+        return after_exploit
+    
+def find_range_that_adds_aux(exploit, xs):
     l = 0
     r = 2
     s = sum(xs[l: r])
