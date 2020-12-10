@@ -79,4 +79,4 @@ if __name__ == "__main__":
     total_arrangements = 1
     for g in groups:
         total_arrangements *= count_arrangements(g)
-    print("The total number of chains that connect the source with my laptop are {}".format(total_arrangements))
+    print("The total number of chains that connect the source with my laptop is {}".format(total_arrangements))
