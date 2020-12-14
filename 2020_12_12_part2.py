@@ -45,7 +45,7 @@ class TestMovements(unittest.TestCase):
 class Boat:
     def __init__(self):
         self.position = np.array([[0],[0]])
-        self.dir = np.array([[1], [0]])
+        self.dir = np.array([[10], [1]])
 
     def move(self, movement):
         if movement.is_turn():
@@ -53,7 +53,7 @@ class Boat:
         elif movement.is_increment():
             self.position += movement.steps*self.dir
         else:
-            self.position += movement.steps*movement.vec
+            self.dir += movement.steps*movement.vec
 
     def manhattan_distance(self):
         return sum(abs(x) for x in self.position.flatten())
