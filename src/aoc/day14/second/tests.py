@@ -17,7 +17,7 @@ class TestMemoryAddressDecoder(unittest.TestCase):
         self.assertEqual(decoder.decode(value), addresses)
 
     def test_sums_correctly(self):
-        rel_route_input = '../smallinput'
+        rel_route_input = '../smallinput2'
         path = local_path(__file__, rel_route_input)
 
         instructions = get_lines(path)

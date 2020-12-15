@@ -18,6 +18,8 @@ class TestBitMask(unittest.TestCase):
         value = 0
         result = 64
         self.assertEqual(mask.apply_mask(value),result)
+    def sums_up_correctly(self):
+        rel_route_input = "../smallinput1"
         
 if __name__ == "__main__":
     unittest.main()
