@@ -1,7 +1,7 @@
 import re
 from itertools import product
 
-from aoc.day14.first.solution import BitMask
+from aoc.day14.first.solution import BitMask, mask_values
 from aoc.utils import local_path, get_lines, find
 
 class MemoryAddressDecoder:
@@ -35,14 +35,18 @@ class MemoryAddressDecoder:
 def write_memory(instructions):
     mem = dict()
 
-    mask_re = re.compile("mask = (?P<definition>[01X]{36})$")
-    memw_re = re.compile("mem\[(?P<index>\d+)\] = (?P<value>\d+)$")
-
-    for decoder, values in decoder_values(instructions):
+    for definition, values in mask_values(instructions):
+        decoder = MemoryAddressDecoder(definition)
         for index, number in values:
             for address in decoder.decode(index):
                 mem[address] = number
     return mem
+
+def sum_up_values(instructions):
+    mem = write_memory(instructions)
+
+    return sum(mem.values())
+
 
 def main():
     rel_route_input = '../input'
@@ -50,10 +54,7 @@ def main():
 
     instructions = get_lines(path)
 
-    mem = write_memory(instructions)
-
-    s = sum(mem.values())
-    print("The sum of all values after program completes is {}".format(s))
+    print(sum_up_values(instructions))
 
 if __name__ == "__main__":
     main()

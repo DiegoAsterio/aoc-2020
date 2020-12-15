@@ -31,7 +31,8 @@ def mask_values(instructions):
             index = int(mem_m.group('index'))
             value = int(mem_m.group('value'))
             values_to_mask.append((index, value))
-    
+    yield mask, values_to_mask
+
 def write_memory(instructions):
     mem = dict()
 
