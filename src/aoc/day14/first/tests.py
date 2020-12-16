@@ -1,8 +1,8 @@
+import unittest
+
 from aoc.utils import local_path, get_lines
 
 from aoc.day14.first.solution import BitMask, sum_up_values
-
-import unittest
 
 class TestBitMask(unittest.TestCase):
     def test_first_example(self):
@@ -27,7 +27,7 @@ class TestBitMask(unittest.TestCase):
         instructions = get_lines(path)
 
         real_sum = 165
-        self.asserEqual(sum_up_values(instructions), real_sum)
+        self.assertEqual(sum_up_values(instructions), real_sum)
         
 if __name__ == "__main__":
     unittest.main()
