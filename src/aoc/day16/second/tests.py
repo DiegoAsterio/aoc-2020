@@ -7,7 +7,7 @@ from aoc.day16.second.solution import valid_tickets, fieldnames
 
 class TestFindingNames(unittest.TestCase):
     def test_first_example(self):
-        to_input = "../smallinput"
+        to_input = "../smallinput2"
         path = local_path(__file__, to_input)
 
         rules, _, nearby_tickets = parse_input(path)
