@@ -5,7 +5,7 @@ def local_path(basename, relativeroute):
 
 def get_lines(path):
     with open(path) as f:
-        return f.read().split('\n')
+        return f.read().strip().split('\n')
 
 def find(lst, elem):
     return [i for i, x in enumerate(lst) if x == elem]
